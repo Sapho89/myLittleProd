@@ -1,0 +1,325 @@
+
+/*STRUCTURE DE HTML [Body,Footer] */
+html, body {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	font-weight: 200;
+	
+}
+
+
+h1 {
+	margin: 0;
+	padding-top: 50px;
+	font-weight: 600;
+	text-align: center;
+	font-size: 1.2em;
+	text-shadow: 0px 5px 10px #333333;
+}
+
+
+h2 {
+	font-size: 0.9em;
+	text-align: center;
+	text-decoration : underline;
+}
+
+h3 {
+	font-size: 1em;
+	font-weight:600;
+}
+
+h4{
+	text-align: center;
+	font-size: 1em;
+	font-weight:300;
+}
+
+p, ol, ul {
+	margin-top: 0px;
+}
+
+p {
+	line-height: 200%;
+}
+
+a{
+color: #000;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+
+
+/** MENU */
+
+.menu {
+
+	width: 1000px;
+	height: 30px;
+	background:#333333;
+	font-size: 20px;
+	padding-right:20px;
+	padding-left:20px;
+	margin-right: auto;
+	margin-left: auto;
+	box-shadow: 5px 5px 10px black;
+}
+
+.menu ul {
+
+	list-style: none;
+	line-height: normal;
+	text-align: left;
+}
+
+.menu li {
+	display: inline-block;
+
+}
+
+.menu a {
+	display: block;
+	padding: 2px 10px 2px 10px;
+	text-decoration: none;
+	font-size: 14px;
+	font-weight: 200;
+	color: #BC8F8F;
+	border: none;
+
+}
+
+  li.niveau1:hover {
+	background: #BC8F8F;
+}
+
+.niveau1 a:hover {
+color:#333333;
+}
+
+
+/* Moteur de recherche multicriteres */
+
+ul ul {display: none;  position: absolute;} 
+li:hover ul.niveau2 {display:block;}
+
+
+.niveau2 {
+
+	padding : 10px;
+	width: 300px;
+	background:#333333;
+	text-decoration: none;
+	font-size: 12px;
+	font-weight: 200;
+	color: #BC8F8F;
+	border: none;
+}
+
+label
+{
+	float:left;
+	display: block;
+	width: 100px;
+}
+
+/* Accueil*/
+
+.main-content{
+	width: 1000px;
+	padding: 0px 0px 0px 0px;
+	background: #BC8F8F;
+	margin-right: auto;
+	margin-left: auto;
+	box-shadow: 0px 5px 10px #333333;
+	height:1000px;
+}
+
+/* Bloc de droite */
+
+.contenu_droite {
+
+width: 200px;
+float:left;
+height: 1000px;
+}
+
+.affiche {
+
+margin: 50px 0 0 20px;
+width:150px;
+height:200px;
+padding: 15px;
+background-color:#333333;
+box-shadow: 5px 5px 10px black;
+line-height:20px;
+text-align: justify;
+color: #BC8F8F;
+margin-right : auto;
+}
+
+
+.top-artiste{
+
+margin: 50px 0 0 20px;
+width:150px;
+height:auto;
+padding: 15px;
+background-color:#333333;
+box-shadow: 5px 5px 10px black;
+line-height:20px;
+text-align: justify;
+color: #BC8F8F;
+margin-right : auto;
+overflow : hidden;
+}
+
+/* Bloc central */
+
+.contenu_central {
+
+	margin-right: 180px;
+	margin-left: 250px;
+	width:510px;
+	height: 1000px;
+}
+
+
+
+#tableau {
+    
+	margin-top: 50px;	
+	background-color:#333333;
+	box-shadow: 5px 5px 10px black;
+    height:400px;
+    width:350px;
+	float:left;
+    color: #BC8F8F;
+}
+
+.colonne {
+    display:block;   
+}
+
+
+
+img.miniature {
+width: 100px;
+height:120px;
+padding-right: 10px;
+padding-left:10px;
+}
+
+/* Bloc de gauche */ 
+
+	/*  Espace connexion */
+	
+.connexionArt {
+	float:right;
+	width:170px;
+	margin: 50px 20px 20px 0px;
+	height:220px;
+	border-radius: 50px 140px 100px 110px;
+	box-shadow: 0px 0px 10px 5px  #000000;
+	text-align:left;
+	background:#333333;
+	color: #BC8F8F;
+}	
+	
+#bulle a {
+	color: #BC8F8F;
+}	
+	
+#bulle {
+margin-left:20px;
+margin-top:50px;
+}	
+
+.log {
+padding-top: 100px;
+font-weight: bold;
+}
+
+/* Globales à ttes les catégories */
+
+
+.img_texte{
+width: 200px;
+height:240px;
+margin-left : 150px;
+}
+
+.presentation {
+
+margin: 50px 0 0 20px;
+width:150px;
+height:500px;
+padding: 15px;
+background-color:#333333;
+box-shadow: 5px 5px 10px black;
+line-height:20px;
+text-align: justify;
+color: #BC8F8F;
+margin-right : auto;
+
+}
+
+.meme_auteur {
+
+margin: 50px 0 0 20px;
+width:150px;
+height:auto;
+padding: 15px;
+background-color:#333333;
+box-shadow: 5px 5px 10px black;
+line-height:20px;
+text-align: justify;
+color: #BC8F8F;
+margin-right : auto;
+overflow : hidden;
+
+}
+
+.meme_auteur img {
+margin: auto;
+width: 100px;
+height:100px;
+padding-right: 25px;
+padding-left: 25px;
+}
+
+.mini {
+width: 150px;
+height:180px;
+margin : auto;
+}
+
+.autres_oeuvres  {
+
+margin-top: 50px;
+margin-right:auto;
+margin-left: auto;
+width:500px;
+height:180px;
+padding: 10px;
+background-color:#333333;
+box-shadow: 5px 5px 10px black;
+line-height:20px;
+text-align: justify;
+color: #BC8F8F;
+
+}
+
+#loupe{
+position: absolute;
+z-index:3;
+
+}
