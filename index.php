@@ -1,6 +1,5 @@
 <?php 
 session_start(); 
-
 ?>
 
 <!DOCTYPE html>
@@ -38,15 +37,12 @@ require_once("menu.php");
 
 <?php
 
-if ($_GET['page'] != '') {
+if (isset($_GET['page']) && $_GET['page'] != 'index') {
 
-  if( ($_GET['id_artiste'] == "") && ($_GET['id_oeuvre'] == "")) {	
-
-			include_once("contenu_principal.php");
-			
-			}else  {
-			
+  if( isset($_GET['id_artiste']) && !empty($_GET['page']) && isset($_GET['id_oeuvre']) && !empty($_GET['id_oeuvre'])) {	
 			include_once("description.php");
+			}else  {
+			include_once("contenu_principal.php");
 		    }
 ?>		
 								

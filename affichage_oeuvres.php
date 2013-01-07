@@ -1,7 +1,3 @@
-<?php 
-session_start(); 
-?>
-
 							<?php
                                               
                                                 $requete = "SELECT o.*,a.*,g1.id_genre, g1.genre as genre1, g1.type,g2.id_genre, g2.genre as genre2, g2.type FROM oeuvre as O, genre as g1, genre as g2, artiste as A WHERE g1.type='".$_SESSION['page']."' AND O.id_genre1 = g1.id_genre AND O.id_genre2 = g2.id_genre AND O.id_artiste = A.id_artiste";

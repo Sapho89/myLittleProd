@@ -1,29 +1,16 @@
-<?php
-session_start();
-
-?>
-
 <div id="bulle">
 
 <?php
-if($_SESSION['type'] == "")
-   
+if(!isset($_SESSION['type']))
 	{
-
 ?>
-
-
-
 <?php
-
-		if( isset($_POST["bouton"]) && isset($_POST["pseudo"]) && isset($_POST["mdp"]) 
-
-		  ) // Le bouton est appuy� et on verifie si le contenu du champs est vide
+		if( isset($_POST["bouton"]) && isset($_POST["pseudo"]) && isset($_POST["mdp"]) ) // Le bouton est appuy� et on verifie si le contenu du champs est vide
 			{
 				$pseudo = $_POST["pseudo"];
 				$mdp = $_POST["mdp"];
 			
-			require_once("connexion.php");
+			//require_once("connexion.php");
 			$req = "select * from artiste where pseudo='$pseudo' and mdp='$mdp'";
 			$res = mysql_query($req);
 			$ligne = mysql_fetch_assoc($res);
@@ -45,7 +32,7 @@ if($_SESSION['type'] == "")
 						/*Variables de Session*/
 					
 				$_SESSION["pseudo"] = $pseudo; //pseudo du membre connecte
-				if ($ligne['id_artiste'] == "")
+				if (!isset($ligne['id_artiste']))
 				{
 				$_SESSION["id_membre"]= $ligne['id_membre'];
 				$_SESSION['type'] = 'm';
@@ -57,6 +44,7 @@ if($_SESSION['type'] == "")
 				}
 				
 				}
+				echo 'Bienvenue '.$_SESSION["pseudo"].', vous &ecirc;tes bien connect&eacute;.';
 			}
 			else 
 			{		
@@ -68,7 +56,9 @@ if($_SESSION['type'] == "")
 		<input id="mdp" type="password" name="mdp" size="10px" value="Votre mot de passe"
 		onBlur="if(this.value == '') { this.value = 'password'}" 
 		onFocus="if(this.value == 'Votre mot de passe') { this.value = ''}"/><br />
-		<div><label for="connexion"><input type="submit" value="Connexion" name="bouton"/></div>
+		<div>
+			<input type="submit" value="Connexion" name="bouton"/>
+		</div>
 		<input type='hidden' name='form' value='form_art'/>
 
 		</form>
@@ -80,9 +70,7 @@ if($_SESSION['type'] == "")
 	}
 		else
 		{
-		echo 'Bienvenue '.$_SESSION["pseudo"].', vous &ecirc;tes bien connect&eacute;.';
-		
-			
+		echo 'Bienvenue '.$_SESSION["pseudo"].', vous &ecirc;tes bien connect&eacute;.';	
 		}
 	?>
 </div>

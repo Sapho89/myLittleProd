@@ -41,7 +41,7 @@ if( isset($_POST['notesA']) ) {
 		$res = mysql_query($req_m);
 		$ligne = mysql_fetch_assoc($res);
 		}
-		if(mysql_num_rows($res) != 0 ){ ?> <p class="note">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vous avez deja vote (<?phpecho $_POST['notesA']."/5";;?>) !</p> <?php }
+		if(mysql_num_rows($res) != 0 ){ ?> <p class="note">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vous avez deja vote (<?php echo $_POST['notesA']."/5";;?>) !</p> <?php }
 		else {
 			$valeurNote = $_POST['notesA'];
 			$id_oeuvre = $_GET['id_oeuvre'];

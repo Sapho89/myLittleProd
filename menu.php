@@ -17,18 +17,12 @@
 				</li>
 					
 				
-				<?php if($_SESSION['type'] != '') { ?>
+				<?php if( isset($_SESSION['type']) && !empty($_SESSION['type'])) { ?>
 				<li class=""><a href="index.php?page=profil_structure">Mon profil</a></li> 
 				<?php }
 				
-				//echo $_SESSION['type'];
-				if($_SESSION['type'] != "")
-				{
 				?>
 				<div id="deconnexion"><a href="deconnexion.php"><img src="logout.png"/>&nbsp;Se d&eacute;connecter</a></div>
-				<?php
-				}
-				?>
 				</ul>
 	</nav>
 	

@@ -1,20 +1,13 @@
 <?php
-
-		
+if(isset($_GET['id_oeuvre']) && isset($_GET['id_artiste'])){
 			$reqInfo = "SELECT * FROM artiste AS A 
 		INNER JOIN oeuvre AS O ON A.id_artiste = O.id_artiste
 		WHERE id_oeuvre = '".$_GET['id_oeuvre']."' AND A.id_artiste='".$_GET['id_artiste']."'";
 		
-		
 		if($rsInfo= mysql_query($reqInfo))
 		{
 			WHILE($tabInfo = mysql_fetch_assoc($rsInfo))
-			{
-	
-?>
-
-
-
+			{?>
 	<div class="contenu_droite">
 		
 		<div class="presentation"> 
@@ -53,7 +46,7 @@
 				$i++;
 					}
 					
-			}else die("Impossible d'afficher les oeuvres du meme auteur ".mysql_error());
+			}else die("Aucune autre oeuvre du même auteur trouvé");//die("Impossible d'afficher les oeuvres du meme auteur ".mysql_error());
 			?>
 			</div>
 	
@@ -84,25 +77,25 @@
 
 	<p>
 	
-	<!-- Recuperation de la date en format francais -->
+	<!-- Recuperation de la date au format francais -->
 	
 	<i>Publi&eacute; le <?php echo substr($tabInfo['date_updated'], 8, 2)."".substr($tabInfo['date_updated'], 4, 4)."".substr($tabInfo['date_updated'], 0, 4); ?></i>
 	
 	<!-- -->
 	
 	<h2>Description </h2><?php echo htmlentities($tabInfo['synopsis']); ?><br /><br />
+	<!-- 
 	<h2>Avis de l'artiste </h2>
-	<?php echo htmlentities($tabInfo['avis_artiste']); ?></p>
+	<?php echo htmlentities($tabInfo['avis_artiste']); ?></p> -->
 
 
 <!-- Systeme de notes -->
 <?php
-/*
-if(($_SESSION["id_artiste"] != "") || ($_SESSION["id_membre"] != "")  &&  ($_SESSION['page'] != ""))
+if((isset($_SESSION["id_artiste"]) && !empty($_SESSION["id_artiste"])) || (isset($_SESSION["id_membre"]) &&  !empty($_SESSION["id_membre"])))
 {
 require_once("note.php");
 }
-else  { echo "<b>Pour noter une oeuvre ou la commenter, vous devez d'abord vous connecter !</b>";}*/
+else  { echo "<b>Pour noter une oeuvre ou la commenter, vous devez d'abord vous connecter !</b>";}
 ?>
 
 
@@ -132,15 +125,15 @@ else  { echo "<b>Pour noter une oeuvre ou la commenter, vous devez d'abord vous 
 </div>
 
 <?php
-/*
-if(($_SESSION["id_artiste"] != "") || ($_SESSION["id_membre"] != "")  &&  ($_SESSION['type'] != ""))
+if( (isset($_SESSION["id_artiste"]) && !empty($_SESSION["id_artiste"]))
+  || isset($_SESSION["id_membre"]) &&  !empty($_SESSION["id_membre"])  &&  
+    isset($_SESSION['type']) && !empty($_SESSION['type']) )
 {
 
 //BLOC INTERACTION
 require_once('includes/bloc_interaction.php');
 
 }
-*/
 ?>
 
 	
@@ -150,6 +143,9 @@ require_once('includes/bloc_interaction.php');
 		}
 		else die("erreur sur la recuperation des artistes :" .mysql_error());
 			
-			
+}
+else {
+	header("location: erreur404.php");
+}
 			
 	?>

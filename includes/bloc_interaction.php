@@ -37,13 +37,14 @@ else {$user =  $_SESSION['id_artiste'];}
 	}
 	
 	/*Ajout d'un commentaire*/
-	
-	if ( (isset($_GET['onglet']) && is_numeric($_GET['onglet']) && isset($_SESSION['fiche_artiste'][$num-1])) || (isset($_GET['id_oeuvre']) ))
+	//onglet permet de différencier l'endroit où est affiché le message. Page de l'oeuvre ou page d'admin de l'artiste
+//	if ( (isset($_GET['onglet']) && is_numeric($_GET['onglet']) && isset($_SESSION['fiche_artiste'][$num-1])) || isset($_GET['id_oeuvre'] ) )
+	if(isset($_SESSION['id_artiste']) & isset($_GET['id_oeuvre']))
 	{
 	echo "<div class='pane post'>";
 	$src = getSrcAvatar($user,$_SESSION['type']);
-	if (isset($_SESSION['fiche_artiste'][$num-1]))
-			$id_oe = $_SESSION['fiche_artiste'][$num-1]['id_oeuvre'];
+/*	if (isset($_SESSION['fiche_artiste'][$num-1]))
+			$id_oe = $_SESSION['fiche_artiste'][$num-1]['id_oeuvre']; */
 	if(isset($_GET['id_oeuvre']))
 			$id_oe = $_GET['id_oeuvre'];
 		echo "<img src='$src'	alt='avatar' id='img_mini' width='50px' height='50px'>";
@@ -59,11 +60,11 @@ else {$user =  $_SESSION['id_artiste'];}
 	}
 	echo "</div>";
 	
-	/*Affich commentaires*/
+	/*Affich commentaires*/ /*
 	if(is_numeric($_GET['onglet']) && isset($_SESSION['fiche_artiste'][$num-1]) ){ //Si affiché sur la page d'une oeuvre dans le profil d'un artiste
 		$id_oeuvre = $_SESSION['fiche_artiste'][$_GET["num"]-1]['id_oeuvre'];
 		affichComOeuvreById_O($id_oeuvre);}
-	else {
+	else { */
 	if(isset($_GET['id_oeuvre'])) { 
 		affichComOeuvreById_O($_GET['id_oeuvre']); //Sur un description_...
 		} 
@@ -71,7 +72,7 @@ else {$user =  $_SESSION['id_artiste'];}
 		if ( !(isset($_GET['num'])) OR $_GET['num'] == 'profil' OR $_GET['num'] == 'recap' OR ($id_oeuvre == 0) ) 
 			affichComOeuvreById_A($_SESSION["id_membre"]); //Dans le profil d'un membre
 	}
-	}
+	/*}*/
 	
 	echo "</div>";  //FIN DU BLOC COMMENTAIRE
 	
