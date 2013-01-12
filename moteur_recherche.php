@@ -1,4 +1,4 @@
-<ul class="niveau2">
+<ul id="niveau2">
 <form action="index.php?page=resultats" method="POST" class="recherche">
 
 
@@ -41,3 +41,4 @@ $reqType = "SELECT distinct type FROM genre";
 
 </form>
 </ul>
+

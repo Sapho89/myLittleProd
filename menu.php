@@ -1,3 +1,13 @@
+
+<script type="text/javascript">
+function show(){
+
+	document.getElementById('niveau2').style.display = 'block';
+
+}
+</script>
+
+
 				<div class="menu" >
 
 	<nav>
@@ -9,8 +19,8 @@
 				<li class="niveau1"><a href="index.php?page=musique">Musique</a></li>
 				<li class="niveau1"><a href="index.php?page=image">Image</a></li>
 				<li class="niveau1"><a href="index.php?page=litterature">Litt&eacute;rature</a></li>
-				<li>				
-				<a href="index.php?page=recherche">Moteur de recherche</a>
+				<li >				
+				<a href='#' onClick="show();" >Moteur de recherche</a>
 
 						<?php include_once("moteur_recherche.php"); ?>
 	

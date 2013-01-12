@@ -108,11 +108,8 @@ color:#333333;
 
 /* Moteur de recherche multicriteres */
 
-ul ul {display: none;  position: absolute;} 
-li:hover ul.niveau2 {display:block;}
 
-
-.niveau2 {
+#niveau2 {
 
 	padding : 10px;
 	width: 300px;
@@ -122,7 +119,10 @@ li:hover ul.niveau2 {display:block;}
 	font-weight: 200;
 	color: #BC8F8F;
 	border: none;
+	display: none;
+	position: absolute;
 }
+
 
 label
 {
