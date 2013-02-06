@@ -1,12 +1,7 @@
-<html>
-
-<head>
-<link rel="stylesheet" type="text/css" href="styleNew.css" />
 
 <script type="text/javascript" src="formArt.js"></script>
 
 
-</head>
 
 <?php
 error_reporting(E_ALL ^ E_NOTICE); //Enlève les notices
@@ -14,24 +9,18 @@ error_reporting(E_ALL ^ E_NOTICE); //Enlève les notices
 ?>
 
 
-<body onLoad="document.forms['formArt'].elements['nom'].focus()">
+<h1>Nouvel Artiste</h1>
+
+<br/>
 
 			
-<div id="conteneur">
-	
-<?php
-
-require_once("menu.php");
-?>
+<div style="margin-left:200px;">
 
 
 
-<h1 class="soustitre">Nouvel Artiste</h1>
-
-
-  <form name="formArt" id="inscriptionArt" method="POST" action="inscriptionArt.php" onSubmit="checkForm()">
+  <form name="formArt" id="inscriptionArt" method="POST" action="index.php?page=inscriptionArt" onSubmit="checkForm()">
     
-	<div class="champs" >
+
         
     <div><label for="nom">Nom :</label><input type="text" name="nom" id="nom" onMouseOut="check('nom')"/>&nbsp;<span id="verifNom"></span></div><br/>
 	
@@ -71,7 +60,7 @@ require_once("menu.php");
 
 </form>
 
-</div>
+
 
 
 
@@ -104,13 +93,13 @@ $addArt = "INSERT INTO artiste
 
 if($result = mysql_query($addArt))
 {
-echo "Vous etes bien inscrit !";
-}
+
+	echo "Vous etes bien inscrit !";
+	
+}else die("erreur dans l'inscription de l'artiste ".mysql_error());
 ?>
 
 		</div>
 
-</body>
 
-</html>
 	

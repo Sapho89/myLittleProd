@@ -64,7 +64,7 @@ if(!isset($_SESSION['type']))
 		</form>
 
 		<br/>
-		Cr&eacute;er un compte <a href="inscriptionArt.php">artiste</a> OU <a href="inscriptionUser.php" target="_self">membre</a>
+		Cr&eacute;er un compte <a href="index.php?page=inscriptionArt">artiste</a> OU <a href="index.php?page=inscriptionUser" target="_self">membre</a>
 		<?php
 		}
 	}

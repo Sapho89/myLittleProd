@@ -1,35 +1,25 @@
-<html>
-
-<head>
-<link rel="stylesheet" type="text/css" href="styleNew.css" />
 
 <script type="text/javascript" src="formUser.js"></script>
 
-
-</head>
 
 <?php
 error_reporting(E_ALL ^ E_NOTICE); //Enlève les notices
 
 ?>
 
-<body onLoad="document.forms['formUser'].elements['nom'].focus()">
+<h1>Nouveau Membre</h1> 
+   
+   <br/>
 
 			
-<div id="conteneur">
-	
-<?php
-
-require_once("menu.php");
-?>
+<div style="margin-left:200px;">
 
 
-<h1 class="soustitre">Nouveau Membre</h1> 
-   
 
-<form name="formUser" id="inscriptionUser" method="POST" action="inscriptionUser.php" >
 
-<div class="champs" >
+<form name="formUser" id="inscriptionUser" method="POST" action="index.php?page=inscriptionUser" >
+
+
         
     <div><label for="nom">Nom :</label><input type="text" name="nom" id="nom" onMouseOut="check('nom')"/>&nbsp;<span id="verifNom"></span></div><br/>
 	
@@ -45,11 +35,10 @@ require_once("menu.php");
 	<input type="reset" name="Annuler" value="Annuler" />
     <input type="submit" name="Envoyer" value="Envoyer" onSubmit="return checkForm()"/> 
 </center>
-</div>
+
 
 </form>
 
- </div>
 
 <?php
 
@@ -74,14 +63,15 @@ $addUser = "INSERT INTO membre
 		(id_membre, nom, prenom, pseudo, mail, mdp) 
 		VALUES ('', '$nom', '$prenom', '$pseudo', '$mail', '$mdp')";
 
-$result = mysql_query($addUser);
+if($result = mysql_query($addUser)){
+
+	echo "Vous etes bien inscrit !";
+	
+}else die("erreur dans l'inscription du membre ".mysql_error());
+
 
 ?>
 
 </div>
 
-
-</body>
-
-</html>
 
