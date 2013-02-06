@@ -18,36 +18,56 @@ if(isset($_GET['id_oeuvre']) && isset($_GET['id_artiste'])){
 	
 			<?php
 
-			$reqMmAuteur = "SELECT * FROM oeuvre as O, artiste as A WHERE O.id_oeuvre!='".$_GET['id_oeuvre']."' AND O.id_artiste = A.id_artiste AND A.id_artiste = '".$_GET['id_artiste']."'";
+			$reqMmAuteur = "SELECT * FROM oeuvre as O, artiste as A WHERE  O.id_artiste = A.id_artiste AND A.id_artiste = '".$_GET['id_artiste']."'";
 			if($resMmAuteur = mysql_query($reqMmAuteur))
 			{
+			
+
 			
 			?>
 	
 	
 			<div class='meme_auteur'>
 			
-					<h2> Oeuvres du m&ecirc;me artiste </h2>
+					
 				
 					
 					
 			<?php
-
 
 			
 			 $i=0;
 				WHILE($tabMmAuteur = mysql_fetch_assoc($resMmAuteur))
 					{ 
 
+					
+					if(($_GET['page'] == 'musique') && ($tabMmAuteur['id_oeuvre'] == $_GET['id_oeuvre']) ){
+					
 				?>
+				
+					<object type="application/x-shockwave-flash" data="musique/dewplayer-rect.swf?autostart=true" width="150" height="20" id="dewplayer" name="dewplayer">
+					<param name="movie" value="musique/dewplayer-rect.swf?autostart=true" />
+					<param name="flashvars" value="mp3=<?php echo $tabMmAuteur['url_son']; ?>" />
+					<param name="wmode" value="transparent" />
+					</object>
+				
+				<?php }else if($tabMmAuteur['id_oeuvre'] != $_GET['id_oeuvre']){?>
+				
+				<h2> Oeuvres du m&ecirc;me artiste </h2>
+				
 				<a href="index.php?page=<?php echo $_SESSION['page']; ?>&id_artiste=<?php echo $tabMmAuteur['id_artiste']; ?>&id_oeuvre=<?php echo $tabMmAuteur['id_oeuvre'];?>" target="_self">
 				<img src="<?php echo $tabMmAuteur['url']; ?>"  title="<?php echo $tabMmAuteur['titre']; ?>" alt="<?php echo $tabMmAuteur['titre']; ?>"/></a>
 				<?php
-				$i++;
+				
+				
+				}
+				$i++;	
 					}
 					
 			}else die("Aucune autre oeuvre du même auteur trouvé");//die("Impossible d'afficher les oeuvres du meme auteur ".mysql_error());
-			?>
+	
+
+	?>
 			</div>
 	
 	
